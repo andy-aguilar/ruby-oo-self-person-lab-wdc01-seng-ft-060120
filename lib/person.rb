@@ -1,4 +1,3 @@
-# your code goes here
 class Person
   attr_reader :name, :happiness, :hygiene
   attr_accessor :bank_account
@@ -10,22 +9,23 @@ class Person
   end
 
   def happiness=(happiness)
-    if happiness > 10
-      @happiness = 10
-    elsif happiness < 0 
-      @happiness = 0
-    else
-      @happiness = happiness
-    end
+    #set happiness to a value between 0 and 10
+    @happiness = max_min(happiness) 
   end
 
   def hygiene=(hygiene)
-    if hygiene > 10
-      @hygiene = 10
-    elsif hygiene < 0 
-      @hygiene = 0
-    else 
-      @hygiene = hygiene
+    #set hygiene to a value between 0 and 10
+    @hygiene = max_min(hygiene)
+  end
+
+  def max_min(value)
+    #sets value to nearest number in range 0 to 10
+    if value > 10
+      10
+    elsif value < 0
+      0
+    else
+      value
     end
   end
 
